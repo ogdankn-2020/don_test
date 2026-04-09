@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Департамент освіти і науки Дніпропетровської ОДА</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Офіційна візитівка Департаменту освіти і науки Дніпропетровської обласної державної адміністрації">
+  <!-- Шрифти -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f7fb;
+      --bg-alt: #ffffff;
+      --accent: #0057b7; /* синій */
+      --accent-soft: #e0edff;
+      --accent-yellow: #ffd700;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border-soft: rgba(15,23,42,0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0edff 0, #f5f7fb 35%, #fdfdfd 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(245,247,251,0.92), rgba(245,247,251,0.7));
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: conic-gradient(from 200deg, #ffd700, #0057b7, #0ea5e9, #ffd700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .logo svg {
+      width: 26px;
+      height: 26px;
+      color: white;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent);
+      background: rgba(37,99,235,0.06);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, #0057b7, #0ea5e9);
+      color: #f9fafb;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.4);
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(37,99,235,0.45);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+      padding: 2.5rem 2.25rem;
+      border-radius: 32px;
+      background: radial-gradient(circle at 0 0, rgba(239,246,255,1), rgba(219,234,254,0.9) 30%, rgba(255,255,255,1) 90%);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 3rem;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-kicker span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 0 0 4px rgba(22,163,74,0.2);
+    }
+
+    .hero-title {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 2.7vw + 1.4rem, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #0057b7, #0ea5e9);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .badge {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg, #0057b7, #0ea5e9);
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 13px 28px rgba(37,99,235,0.45);
+    }
+
+    .btn-primary svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 17px 36px rgba(37,99,235,0.55);
+    }
+
+    .btn-ghost {
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148,163,184,0.85);
+      background: rgba(255,255,255,0.75);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 220px;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 26px;
+      padding: 1.4rem 1.3rem;
+      background: linear-gradient(145deg, #0f172a, #020617);
+      color: #e5e7eb;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.8);
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.25), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(59,130,246,0.45), transparent 60%),
+        radial-gradient(circle at 0 100%, rgba(250,204,21,0.35), transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-pill {
+      padding: 0.15rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.75);
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #cbd5f5;
+    }
+
+    .hero-perc {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: baseline;
+      gap: 0.15rem;
+    }
+
+    .hero-perc span {
+      font-size: 0.75rem;
+      color: #cbd5f5;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.7rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-mini {
+      padding: 0.6rem 0.6rem;
+      border-radius: 0.9rem;
+      background: rgba(15,23,42,0.75);
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    .hero-mini span.label {
+      display: block;
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+      font-size: 0.7rem;
+    }
+
+    .hero-mini span.value {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .hero-tag {
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-heading {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-description {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .cols-2 {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.25rem 1.35rem;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.06);
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .list li::before {
+      content: "●";
+      color: var(--accent);
+      font-size: 0.65rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(37,99,235,0.25);
+      color: #1f2937;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.1rem 1.1rem;
+      text-align: left;
+      box-shadow: 0 14px 34px rgba(15,23,42,0.05);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .stat-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148,163,184,0.9);
+      background: rgba(255,255,255,0.7);
+      color: var(--text-muted);
+    }
+
+    .contacts {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .contacts-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contacts-list strong {
+      color: var(--text);
+    }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-alt);
+      border: 1px solid var(--border-soft);
+      padding: 0.9rem 1rem 1rem;
+      box-shadow: 0 16px 38px rgba(15,23,42,0.06);
+    }
+
+    .map-placeholder {
+      margin-top: 0.55rem;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #dbeafe, #e5e7eb);
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1f2937;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px dashed rgba(148,163,184,0.9);
+    }
+
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.35);
+      padding: 1.25rem 1.25rem 2.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(248,250,252,0.9);
+      margin-top: 1.5rem;
+    }
+
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+        padding: 1.9rem 1.6rem;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .cols-2,
+      .contacts {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        padding-inline: 1rem;
+      }
+      main {
+        padding-inline: 1rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 1.7rem 1.2rem;
+      }
+      .stats-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" aria-label="Логотип освіти">
+          <path d="M4 8.5L12 4l8 4.5-8 4.5L4 8.5Z" fill="currentColor" opacity="0.9"/>
+          <path d="M6 10v6.5c0 .8.6 1.5 1.4 1.6 1.6.2 3.6.7 4.6 1.4 1-0.7 3-1.2 4.6-1.4.8-.1 1.4-.8 1.4-1.6V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">Департамент освіти і науки</div>
+        <div class="brand-sub">Дніпропетровська обласна державна адміністрація</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">Про департамент</a>
+      <a href="#directions">Напрями</a>
+      <a href="#stats">Цифри</a>
+      <a href="#projects">Ініціативи</a>
+      <a href="#contacts">Контакти</a>
+      <a class="nav-cta" href="http://department.osvita-dnepr.com" target="_blank" rel="noopener noreferrer">
+        Офіційний сайт
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div>
+      <div class="hero-kicker">
+        <span class="dot"></span>
+        <span>Освіта, що тримає регіон сильним</span>
+      </div>
+      <h1 class="hero-title">
+        Інноваційна та стійка <span>освітня екосистема Дніпропетровщини</span>
+      </h1>
+      <p class="hero-text">
+        Департамент освіти і науки координує мережу закладів освіти області — від дошкілля до вищої та професійно-технічної освіти, забезпечуючи доступність, якість і безпеку навчання в умовах воєнного часу.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Координація закладів освіти всіх рівнів</span>
+        <span class="badge">Цифровізація освітнього простору</span>
+        <span class="badge">Підтримка педагогів та учнів</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary" href="http://department.osvita-dnepr.com" target="_blank" rel="noopener noreferrer">
+          <span>Перейти на офіційний сайт</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contacts" class="btn-ghost">Контакти та приймальня</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="hero-pill">Освітній ландшафт області</div>
+          <div class="hero-perc">
+            100%
+            <span>громад з доступом до освіти</span>
+          </div>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-mini">
+            <span class="label">Заклади освіти</span>
+            <span class="value">Школи, ліцеї, ЗВО, ЗПТО</span>
+          </div>
+          <div class="hero-mini">
+            <span class="label">Фокус</span>
+            <span class="value">Якість, безпека, інклюзія</span>
+          </div>
+          <div class="hero-mini">
+            <span class="label">Цифрові сервіси</span>
+            <span class="value">Е-журнали, дистанційне навчання</span>
+          </div>
+          <div class="hero-mini">
+            <span class="label">Підтримка педагогів</span>
+            <span class="value">Навчання, методичний супровід</span>
+          </div>
+        </div>
+        <div class="hero-tag">Разом з громадами та закладами освіти будуємо сучасне освітнє середовище регіону.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-kicker">Про департамент</div>
+    <h2 class="section-heading">Координаційний центр освітньої політики області</h2>
+    <p class="section-description">
+      Департамент освіти і науки Дніпропетровської обласної державної адміністрації є обласним органом управління освітою, що реалізує державну освітню політику, координує діяльність закладів та підтримує розвиток сучасної освітньої інфраструктури в регіоні.
+    </p>
+    <div class="cols-2">
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.5rem;">Місія департаменту</h3>
+        <ul class="list">
+          <li>Забезпечення доступної та якісної освіти на всіх рівнях — від дошкільної до фахової та вищої.</li>
+          <li>Підтримка педагогічних працівників та управлінських команд закладів освіти.</li>
+          <li>Розвиток безпечного, інклюзивного та цифрового освітнього середовища в умовах воєнних викликів.</li>
+          <li>Партнерство з громадами, міжнародними та громадськими організаціями.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.5rem;">Ключові принципи</h3>
+        <p style="font-size:0.92rem; color:var(--text-muted);">
+          У центрі уваги — дитина, вчитель, громада. Департамент працює прозоро, системно та в тісній взаємодії з освітніми стейкхолдерами.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Якість освіти</span>
+          <span class="pill">Безпека та психологічна підтримка</span>
+          <span class="pill">Інновації та цифровізація</span>
+          <span class="pill">Публічність та підзвітність</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTIONS -->
+  <section id="directions">
+    <div class="section-kicker">Напрями роботи</div>
+    <h2 class="section-heading">Повний цикл супроводу освітньої мережі області</h2>
+    <p class="section-description">
+      Департамент координує й методично підтримує заклади освіти різних типів, забезпечуючи взаємодію між державою, громадами та освітніми установами.
+    </p>
+    <div class="cols-2">
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.4rem;">Основні напрями</h3>
+        <ul class="list">
+          <li>Загальна середня освіта: школи, ліцеї, гімназії.</li>
+          <li>Дошкільна та позашкільна освіта.</li>
+          <li>Професійна (професійно-технічна) освіта та фахова передвища освіта.</li>
+          <li>Координація вищої освіти регіону (у межах повноважень).</li>
+          <li>Наукова, інноваційна діяльність та STEM-освіта.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.4rem;">Підтримка та сервіси</h3>
+        <ul class="list">
+          <li>Нормативно-правове та методичне забезпечення закладів.</li>
+          <li>Організація освітнього процесу в умовах воєнного стану, безпекові протоколи.</li>
+          <li>Підвищення кваліфікації педагогів, розвиток освітнього лідерства.</li>
+          <li>Комунікація з батьківською спільнотою та громадськістю.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="section-kicker">Ключові цифри</div>
+    <h2 class="section-heading">Освітня мережа Дніпропетровщини в динаміці</h2>
+    <p class="section-description">
+      Сферу освіти області формують сотні закладів різних рівнів та форм власності. Нижче — орієнтовні індикатори, які можна адаптувати під актуальні статистичні дані департаменту.
+    </p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Заклади загальної середньої освіти</div>
+        <div class="stat-value">XXX+</div>
+        <div class="stat-note">школи та ліцеї області</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Заклади дошкільної освіти</div>
+        <div class="stat-value">YYY+</div>
+        <div class="stat-note">дитячі садки та НВК</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Заклади профосвіти / ЗВО</div>
+        <div class="stat-value">ZZ+</div>
+        <div class="stat-note">професійні та вищі заклади освіти</div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Актуальні дані можна підставити зі статистичних звітів департаменту</span>
+      <span class="tag">Цей блок — візуальний акцент на масштабі освітньої мережі</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-kicker">Ініціативи та проєкти</div>
+    <h2 class="section-heading">Пріоритети розвитку освіти в регіоні</h2>
+    <p class="section-description">
+      Департамент реалізує та підтримує низку регіональних і всеукраїнських програм, спрямованих на модернізацію освітнього простору, підтримку учнів і педагогів та посилення національно-патріотичного виховання.
+    </p>
+    <div class="cols-2">
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.4rem;">Поточні пріоритети</h3>
+        <ul class="list">
+          <li>Створення безпечного освітнього середовища (укриття, безпекові тренінги, психологічна підтримка).</li>
+          <li>Цифровізація процесів: електронні журнали, дистанційне та змішане навчання.</li>
+          <li>Інклюзивна освіта та підтримка дітей з особливими освітніми потребами.</li>
+          <li>Розвиток STEM-освіти, профорієнтаційні та підприємницькі програми.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:600; margin-bottom:0.4rem;">Комунікація та партнерства</h3>
+        <ul class="list">
+          <li>Співпраця з територіальними громадами області.</li>
+          <li>Участь у всеукраїнських і міжнародних освітніх проєктах.</li>
+          <li>Взаємодія з громадськими організаціями, університетами, бізнесом.</li>
+          <li>Інформаційні кампанії для учнів, батьків та освітян.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <div class="section-kicker">Контакти</div>
+    <h2 class="section-heading">Приймальня та канали комунікації</h2>
+    <p class="section-description">
+      Для офіційних звернень, консультацій щодо освітньої діяльності та співпраці можна скористатися наведеними контактами або перейти на офіційний сайт департаменту.
+    </p>
+    <div class="contacts">
+      <div>
+        <div class="card">
+          <h3 style="font-weight:600; margin-bottom:0.4rem;">Основні контактні дані</h3>
+          <ul class="contacts-list">
+            <li><strong>Адреса:</strong> 49006, Україна, м. Дніпро, вул. Володимира Антоновича, 70</li>
+            <li><strong>Телефони приймальні:</strong> (056) 770-68-00, (056) 770-87-42</li>
+            <li><strong>E-mail:</strong> <a href="mailto:osvita@adm.dp.gov.ua">osvita@adm.dp.gov.ua</a></li>
+            <li><strong>Офіційний сайт:</strong> <a href="http://department.osvita-dnepr.com" target="_blank" rel="noopener noreferrer">department.osvita-dnepr.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="map-card">
+        <div style="font-size:0.9rem; font-weight:600; margin-bottom:0.1rem;">Як нас знайти</div>
+        <div style="font-size:0.82rem; color:var(--text-muted);">
+          Будівля Дніпропетровської обласної державної адміністрації, поруч із ключовими транспортними артеріями міста.
+        </div>
+        <div class="map-placeholder">
+          Тут можна вставити інтерактивну карту (Google Maps / OpenStreetMap)
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Департамент освіти і науки Дніпропетровської обласної державної адміністрації</div>
+    <div>Матеріал — демонстраційна односторінкова візитівка. Для офіційної інформації використовуйте основний сайт департаменту.</div>
+  </div>
+</footer>
+
+<script>
+  // поточний рік у футері
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
